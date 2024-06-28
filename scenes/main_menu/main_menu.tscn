@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://drc6cu1oxgpuh"]
+
+[ext_resource type="Texture2D" uid="uid://ciyuhvuwyhaem" path="res://assets/ui/images/main_menu_background.png" id="1_go7mm"]
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_l2uaj"]
+[ext_resource type="AudioStream" uid="uid://ci4jocd3uo8cs" path="res://assets/audio/sfx/analog_appliance_button_11.mp3" id="3_c5dhp"]
+[ext_resource type="AudioStream" uid="uid://dkbjfbfbealsx" path="res://assets/audio/music/main_menu_music.wav" id="4_qjwsq"]
+
+[sub_resource type="SystemFont" id="SystemFont_g6ipt"]
+font_names = PackedStringArray("VCR OSD Mono")
+
+[sub_resource type="SystemFont" id="SystemFont_rnsho"]
+font_names = PackedStringArray("VCR OSD Mono")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gn2s"]
+
+[sub_resource type="SystemFont" id="SystemFont_mu7ob"]
+font_names = PackedStringArray("VCR OSD Mono")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oypro"]
+
+[sub_resource type="SystemFont" id="SystemFont_d4ah8"]
+font_names = PackedStringArray("VCR OSD Mono")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioidv"]
+
+[sub_resource type="SystemFont" id="SystemFont_cowt0"]
+font_names = PackedStringArray("VCR OSD Mono")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ry0vm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2uaj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_go7mm")
+expand_mode = 1
+
+[node name="Labels" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="Separator" type="Control" parent="Labels"]
+layout_mode = 2
+
+[node name="Author" type="Label" parent="Labels/Separator"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -29.0
+offset_right = 209.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_fonts/font = SubResource("SystemFont_g6ipt")
+theme_override_font_sizes/font_size = 32
+text = "© 2023 Jakub Hachlinec"
+
+[node name="Version" type="Label" parent="Labels/Separator"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_fonts/font = SubResource("SystemFont_g6ipt")
+theme_override_font_sizes/font_size = 32
+text = "Pre-Alpha (4-6-2024)"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 445.0
+offset_top = 500.0
+offset_right = 656.0
+offset_bottom = 834.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Buttons" groups=["MenuButtons"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_rnsho")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4gn2s")
+text = "Play"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="Buttons" groups=["MenuButtons"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_mu7ob")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oypro")
+text = "Options"
+flat = true
+
+[node name="ExtrasButton" type="Button" parent="Buttons" groups=["MenuButtons"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_d4ah8")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ioidv")
+disabled = true
+text = "Extras"
+flat = true
+
+[node name="QuitButton" type="Button" parent="Buttons" groups=["MenuButtons"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_cowt0")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ry0vm")
+text = "Quit"
+flat = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qjwsq")
+autoplay = true
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c5dhp")
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="Buttons/OptionsButton" to="." method="OnOptionsButtonPressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="OnQuitButtonPressed"]
